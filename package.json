@@ -1,0 +1,20 @@
+{
+    "name": "google-jwt-validation",
+    "version": "1.0.0",
+    "description": "validate google auth jwt via google public keys",
+    "main": "src/index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [
+        "google-auth",
+        "jwt"
+    ],
+    "author": "Alessandro Caldonazzi",
+    "license": "ISC",
+    "dependencies": {
+        "jsonwebtoken": "^8.5.1",
+        "node-fetch": "^2.6.1",
+        "rasha": "^1.2.5"
+    }
+}
