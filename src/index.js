@@ -19,11 +19,11 @@ let JWK = { keys: [] };
  */
 async function refreshCertificates() {
     return new Promise((resolve, reject) => {
-        fetch("https://www.googleapis.com/oauth2/v1/certs")
+        fetch(endpoints.PEM)
             .then((res) => res.json())
             .then((pemJson) => {
                 PEM = pemJson;
-                fetch("https://www.googleapis.com/oauth2/v3/certs")
+                fetch(endpoints.JWK)
                     .then((res) => res.json())
                     .then((jwkJson) => {
                         JWK = jwkJson;
