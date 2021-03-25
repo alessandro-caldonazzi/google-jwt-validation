@@ -13,11 +13,11 @@ let JWK = { keys: [] };
  * @property {String} PEM
  * @property {Object} JWK
  */
-/** @function refreshCertificates
+/** @function refreshKeys
  * refresh google public keys (PEM, JWK)
  * @returns {Promise<Keys>} Promise object represents the {PEM,JWK}
  */
-async function refreshCertificates() {
+async function refreshKeys() {
     return new Promise((resolve, reject) => {
         fetch(endpoints.PEM)
             .then((res) => res.json())
@@ -79,7 +79,7 @@ async function selectKey(kid, format, retry = 1) {
     //key not found, update keys
     if (!key && retry > 0) {
         console.log("riprovo");
-        await refreshCertificates();
+        await refreshKeys();
         return await selectKey(kid, format, retry - 1);
     }
     return key;
@@ -97,6 +97,6 @@ function changeEndpoints(values) {
 
 module.exports = {
     validate,
-    refreshCertificates,
+    refreshKeys,
     changeEndpoints,
 };
