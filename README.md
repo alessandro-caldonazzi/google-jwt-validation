@@ -23,19 +23,6 @@ googleJwtValidation
     .catch((err) => console.log(err));
 ```
 
-For example, if you are using the googleapis node module:
-
-```js
-const { tokens } = await oauth2Client.getToken(req.query.code);
-
-googleJwtValidation
-    .validate({ token: tokens.id_token })
-    .then((decoded) => {
-        //do stuff with your valid token
-    })
-    .catch((err) => console.log(err));
-```
-
 If you want, you can user await.
 
 ## Manually refresh google public keys
