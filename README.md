@@ -23,7 +23,7 @@ googleJwtValidation
     .catch((err) => console.log(err));
 ```
 
-If you want, you can user await.
+If you want, you can use await.
 
 ## Manually refresh google public keys
 
