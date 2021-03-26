@@ -47,9 +47,8 @@ function validate({ token, format = "PEM" }) {
             const { header } = jwt.decode(token, { complete: true });
             let key = await selectKey(header.kid, format);
 
-            if (!key) reject("Error during key selection");
+            if (!key) return reject("Error during key selection");
             if (format === "JWK") {
-                console.log("JWK");
                 key = await Rasha.export({ jwk: key });
             }
 
@@ -78,7 +77,6 @@ async function selectKey(kid, format, retry = 1) {
     }
     //key not found, update keys
     if (!key && retry > 0) {
-        console.log("riprovo");
         await refreshKeys();
         return await selectKey(kid, format, retry - 1);
     }
