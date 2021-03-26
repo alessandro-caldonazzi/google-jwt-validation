@@ -1,6 +1,6 @@
 {
     "name": "google-jwt-validation",
-    "version": "1.0.0",
+    "version": "1.0.2",
     "description": "validate google auth jwt via google public keys",
     "main": "src/index.js",
     "scripts": {
